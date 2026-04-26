@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:saku/models/user_model.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final userEmail =
-        ModalRoute.of(context)!.settings.arguments as String?;
+    final user =
+        ModalRoute.of(context)!.settings.arguments as User;
 
     return Scaffold(
       appBar: AppBar(
@@ -30,7 +31,7 @@ class DashboardScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Selamat datang, ${userEmail ?? 'User'}",
+              "Selamat datang, ${user.name}",
               style: TextStyle(fontSize: 18),
             ),
             SizedBox(height: 20),
@@ -47,8 +48,8 @@ class DashboardScreen extends StatelessWidget {
                     margin: EdgeInsets.symmetric(vertical: 8),
                     child: ListTile(
                       leading: Icon(Icons.coffee),
-                      title: Text("Menu Kopi ${index + 1}"),
-                      subtitle: Text("Deskripsi menu kopi"),
+                      title: Text("Berita Saku ${index + 1}"),
+                      subtitle: Text("Deskripsi berita"),
                     ),
                   );
                 },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/validators.dart';
+import '../models/user_model.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -7,6 +8,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   String email = '';
@@ -27,8 +31,16 @@ class _LoginScreenState extends State<LoginScreen> {
     await Future.delayed(Duration(seconds: 1));
 
     if (email == "admin@test.com" && password == "Admin123") {
-      Navigator.pushReplacementNamed(context, '/dashboard',
-          arguments: email);
+    User user = User(
+  email: emailController.text,
+  name: "User",
+);
+
+Navigator.pushReplacementNamed(
+  context,
+  '/dashboard',
+  arguments: user,
+);
     } else {
       setState(() {
         errorMessage = "Login gagal!";
