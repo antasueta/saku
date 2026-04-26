@@ -43,10 +43,19 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Login")),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Form(
+      appBar: AppBar(title: Text("SAKU"),
+      centerTitle: true),
+      body: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+        colors: [Colors.white, Colors.blue.shade100],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+    ),
+  ),
+  child: Padding(
+    padding: const EdgeInsets.all(16),
+    child: Form(
           key: _formKey,
           child: Column(
             children: [
@@ -95,6 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+    ),
     );
   }
 }
