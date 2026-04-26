@@ -3,7 +3,7 @@ class Validators {
     if (value == null || value.isEmpty){
       return "Email tidak boleh kosong";
     }
-    if (!value.contains('@')) {
+    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
       return "Format email tidak valid";
     }
     return null;

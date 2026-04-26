@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
       errorMessage = '';
     });
 
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
 
     if (email == "admin@test.com" && password == "Admin123") {
       Navigator.pushReplacementNamed(context, '/dashboard',
