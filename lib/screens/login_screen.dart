@@ -55,12 +55,12 @@ Navigator.pushReplacementNamed(
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("SAKU"),
+      appBar: AppBar(title: Text("SAKU", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.lightBlueAccent),),
       centerTitle: true),
       body: Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-        colors: [Colors.white, Colors.blue.shade100],
+        colors: [Colors.white, Colors.blue.shade200],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
     ),
@@ -79,11 +79,12 @@ Navigator.pushReplacementNamed(
               TextFormField(
                 obscureText: !isPasswordVisible,
                 decoration: InputDecoration(
-                  labelText: "Password",
+                  labelText: "Password", 
                   suffixIcon: IconButton(
                     icon: Icon(isPasswordVisible
                         ? Icons.visibility
-                        : Icons.visibility_off),
+                        : Icons.visibility_off,
+                        size: 15,),
                     onPressed: () {
                       setState(() {
                         isPasswordVisible = !isPasswordVisible;
@@ -100,14 +101,17 @@ Navigator.pushReplacementNamed(
                   ? CircularProgressIndicator()
                   : ElevatedButton(
                       onPressed: login,
-                      child: Text("Login"),
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.lightBlueAccent),
+                      child: Text("Login", style: TextStyle(color: Colors.white)),
                     ),
 
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/forgot');
                 },
-                child: Text("Lupa Password?"),
+                child: Text("Lupa Password?", 
+                style: TextStyle(decoration: TextDecoration.underline, fontSize: 12),
+                ),
               ),
 
               if (errorMessage.isNotEmpty)
